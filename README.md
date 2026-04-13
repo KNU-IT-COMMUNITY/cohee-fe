@@ -14,6 +14,12 @@ pnpm dev
 bun dev
 ```
 
+## Development Notes
+
+- `pnpm dev` runs `next dev --webpack`.
+- This repository uses Webpack by default as a temporary fallback because `next dev` with the default Turbopack bundler can enter an infinite recompilation loop in the current `Next.js 16.2.2` setup.
+- To reproduce or re-check the Turbopack behavior later, run `pnpm dev:turbopack`.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
