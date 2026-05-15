@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction/Overview" />
+
+# Component Library
+
+이 Storybook은 페이지 예시를 제외하고 기본 Material 스타일 공통 컴포넌트만 확인하기 위한 내부 컴포넌트 북입니다.
+
+## 범위
+
+- `shared/ui/Button`
+- `shared/ui/TextField`
+- `shared/ui/Card`
+- `shared/ui/Checkbox`
+- `shared/ui/Switch`
+
+## 목적
+
+- 페이지 구현과 분리해 공통 UI의 기본 상태를 빠르게 확인
+- 작은 preview canvas에서 컴포넌트 크기에 맞게 형태와 상태를 검토
+- 이후 실제 화면 요구사항이 확정되면 같은 구조로 컴포넌트 확장
+
+## 사용 방법
+
+- `pnpm storybook`
+  - docs-only 모드로 실행
+- `pnpm storybook:full`
+  - 일반 Storybook UI로 실행
+- `pnpm build-storybook`
+  - docs-only 정적 빌드 생성
+
+## 참고
+
+- 스타일은 `src/app/globals.css`를 그대로 사용합니다.
+- Next.js App Router 환경에 맞춰 Storybook preview에서 `nextjs.appDirectory`를 활성화했습니다.

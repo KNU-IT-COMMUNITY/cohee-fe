@@ -1,0 +1,22 @@
+.sb-tight-preview .docs-story {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  inline-size: auto;
+  min-inline-size: 0;
+  padding: 40px;
+}
+
+.sb-tight-preview .docs-story > div {
+  inline-size: auto;
+  min-inline-size: 0;
+}
+
+.sb-tight-preview .innerZoomElementWrapper {
+  inline-size: auto !important;
+  min-inline-size: 0 !important;
+}
+
+.sb-tight-preview iframe {
+  inline-size: auto !important;
+}

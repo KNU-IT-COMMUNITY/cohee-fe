@@ -13,6 +13,7 @@
 
 ```txt
 root
+├─ .storybook
 ├─ docs
 │  ├─ 01-folder-architecture.md
 │  ├─ 02-specs.md
@@ -36,11 +37,11 @@ root
 ```txt
 src
 ├─ app
-│  ├─ mentor/[id]
-│  ├─ login
-│  ├─ my
+│  ├─ (auth)/login
 │  ├─ globals.css
-│  └─ layout.tsx
+│  ├─ layout.tsx
+│  ├─ page.tsx
+│  └─ (auth)/layout.tsx
 ├─ entities
 ├─ features
 ├─ shared
@@ -49,19 +50,22 @@ src
 │  └─ ui
 └─ widgets
    ├─ auth
-   ├─ mentor
-   ├─ home
-   └─ profile
+   └─ (기타 화면 위젯은 추후 재도입 예정)
 ```
 
 ## 레이어 책임
 
+- `.storybook`
+  Storybook 설정을 둡니다.
+  현재는 페이지 예시 없이 기본 공통 UI 컴포넌트를 문서형 컴포넌트 북으로 확인하는 개발용 도구로 사용합니다.
+
 - `src/app`
   `layout.tsx`, `page.tsx` 같은 App Router 엔트리 파일을 둡니다.
+  인증 계열 공통 화면 크롬은 route group인 `src/app/(auth)`의 `layout.tsx`에서 관리합니다.
 
 - `src/widgets`
   화면을 구성하는 재사용 가능한 뷰 블록을 둡니다.
-  현재는 `home`, `auth`, `profile`, `mentor` 위젯이 여기에 위치합니다.
+  현재는 로그인 화면용 `auth` 위젯을 유지합니다.
 
 - `src/features`
   로그인 제출, 신청 액션, 프로필 수정처럼 사용자 의도가 드러나는 기능 단위를 둡니다.
@@ -87,17 +91,17 @@ src
 ## 현재 라우트 해석
 
 - `/`
-  서비스 소개 및 주요 진입 경로를 제공하는 랜딩 페이지
+  현재는 별도 홈 화면을 두지 않고 `/login`으로 리다이렉트합니다.
 
 - `/login`
   로그인 진입 페이지
   카카오 로그인과 구글 로그인 도입을 위한 인증 진입 페이지
 
-- `/my`
-  마이페이지
+## 현재 구현 상태
 
-- `/mentor/[id]`
-  멘토 상세페이지
+- 현재 제품 화면 구현은 `/login`만이며 `/`는 `/login`으로 리다이렉트합니다.
+- 공통 UI 문서화는 App Router 페이지가 아니라 Storybook으로 관리합니다.
+- `/`, `/my`, `/mentor/[id]`는 추후 요구사항이 정리되면 다시 구현합니다.
 
 ## 미확정 사항
 

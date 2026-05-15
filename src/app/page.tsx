@@ -1,5 +1,5 @@
-import { HomeLanding } from "@/widgets/home/home-landing";
+import { redirect } from "next/navigation";
 
 export default function HomePage() {
-  return <HomeLanding />;
+  redirect("/login");
 }

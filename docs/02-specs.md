@@ -10,6 +10,7 @@
 - 패키지 매니저: `pnpm`
 - 스타일링: `Tailwind CSS v4`
 - UI 보조 라이브러리: `shadcn`, `class-variance-authority`, `clsx`, `tailwind-merge`
+- 컴포넌트 문서화: `Storybook 10` with `@storybook/nextjs-vite`
 
 ## Next.js 규칙
 
@@ -31,6 +32,8 @@
 - 전역 토큰은 `src/app/globals.css`에 둡니다.
 - 반복되는 하드코딩 값보다 CSS 변수 기반의 의미 있는 토큰 사용을 우선합니다.
 - 일회성 버튼 마크업을 새로 만들기보다 공통 `Button` 프리미티브를 우선 사용합니다.
+- 본문 타이포그래피는 한국어 가독성을 우선하는 `next/font` sans를 기본으로 두고, 브랜드 강조 텍스트에만 별도 display font를 제한적으로 사용합니다.
+- 인증 계열 배경, 패널, 강조색처럼 페이지 분위기를 좌우하는 값은 `globals.css`의 semantic token으로 먼저 정의합니다.
 
 ## 데이터 및 상태 관리
 
@@ -42,6 +45,10 @@
 
 - `pnpm dev`는 `next dev --webpack`을 실행합니다.
 - `pnpm dev:turbopack`은 현재 Turbopack 동작을 다시 점검할 때 사용합니다.
+- `pnpm storybook`은 docs-only 모드로 Storybook을 실행합니다.
+- `pnpm storybook:full`은 일반 Storybook UI를 실행합니다.
+- `pnpm build-storybook`은 docs-only 정적 빌드를 생성합니다.
+- Storybook은 현재 페이지 예시를 제외하고 `Shared UI`의 기본 Material 스타일 컴포넌트 확인용으로 사용합니다.
 - 동적 라우트 `params`는 현재 저장소에서 사용하는 Next.js App Router 타입 스타일을 따릅니다.
   예: `params: Promise<{ id: string }>`
 
